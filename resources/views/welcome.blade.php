@@ -9,7 +9,7 @@
   <meta name="author" content="">
   <link href="{{ asset ('backend/img/logo/logo.png')}}" rel="icon">
   <title>RuangAdmin - Dashboard</title>
-  <link rel="stylesheet" type="text/css" href="{{ assets('css/app.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}">
   <link href="{{ asset ('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{ asset ('backend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{ asset ('backend/css/ruang-admin.min.css')}}" rel="stylesheet">
