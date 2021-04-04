@@ -9,7 +9,7 @@ Vue.use(VueRouter)
 
 
 // Imported Routes
-import {router} from './router';
+import {routes} from './routes';
 
 
 const router = new VueRouter({
@@ -21,4 +21,5 @@ const router = new VueRouter({
 // Connected to Welcome.blade.php
 const app = new Vue({
     el: '#app',
+    router
 });
