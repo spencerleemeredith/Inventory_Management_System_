@@ -16,6 +16,7 @@
 </head>
 
 <body id="page-top">
+    <!-- Defined from app.js-->
 <div id="app">
   <div id="wrapper">
     <!-- Sidebar -->
