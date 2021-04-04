@@ -8,7 +8,10 @@ Vue.use(VueRouter)
 
 
 
-// Routes 
+// Imported Routes
+import {router} from './router';
+
+
 const router = new VueRouter({
     routes // short for `routes: routes`
   })
