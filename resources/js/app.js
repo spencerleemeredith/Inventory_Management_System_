@@ -13,6 +13,12 @@ const router = new VueRouter({
 });
 
 // Connected to Welcome.blade.php
+
+// Import User Class 
+    import User from  './Helpers/User'
+    window.User = User
+
+
 const app = new Vue({
     el: "#app",
     router
