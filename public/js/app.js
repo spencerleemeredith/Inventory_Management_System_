@@ -2023,7 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
         User.responseAfterLogin(res);
 
         _this.$router.push({
-          name: 'home'
+          name: "home"
         });
       })["catch"](function (error) {
         return console.log(error.response.data);
