@@ -13,7 +13,8 @@
                   <form class ="user" @submit.prevent="signup">
                     <div class="form-group">
                       <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Full Name" v-model="form.name">
-                      <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
+                      <!-- error section setup later -->
+                      <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small> 
                     </div>
                     <div class="form-group">
                       <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
