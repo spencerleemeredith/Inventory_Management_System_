@@ -23,7 +23,6 @@
                                                 placeholder="Enter Email Address"
                                                 v-model="form.email"
                                             />
-                                            
                                         </div>
                                         <div class="form-group">
                                             <input
@@ -54,15 +53,16 @@
                                         <div class="form-group">
                                             <button
                                                 type="submit"
-                                                class="btn btn-primary btn-block">
+                                                class="btn btn-primary btn-block"
+                                            >
                                                 Login
                                             </button>
                                         </div>
-                                        <hr>
+                                        <hr />
 
                                         <!-- User Form End -->
                                     </form>
-                                    <hr>
+                                    <hr />
                                     <div class="text-center">
                                         <router-link
                                             to="/register"
@@ -104,9 +104,15 @@ export default {
         login() {
             // for testing to see if login works alert("test");
             // Display Errors and responses
-            axios.post('/api/auth/login',this.form)
-            .then(res => console.log(res.data))
-            .catch(error => console.log(error.response.data))
+            axios
+                .post("/api/auth/login", this.form)
+                // .then(res => console.log(res.data))
+                // .catch(error => console.log(error.response.data))
+                .then(res => {
+                    User.responseAfterLogin(res);
+                    this.$router.push({ name: "home" });
+                })
+                .catch(error => console.log(error.response.data));
         }
     }
 };
