@@ -19,6 +19,11 @@ const router = new VueRouter({
     window.User = User
 
 
+    // Import User Class 
+    import Notification from  './Helpers/Notification'
+    window.User = Notification
+
+
 // Sweet Alert Start
 
 import Swal from 'sweetalert2'
