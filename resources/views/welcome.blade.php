@@ -35,9 +35,9 @@ this user as a route path home or user register or not also forgot password -->
       </a>
       <hr class="sidebar-divider my-0">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <router-link class="nav-link" to="home">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Dashboard</span></router-link>
       </li>
       <hr class="sidebar-divider">
       <div class="sidebar-heading">
@@ -51,7 +51,7 @@ this user as a route path home or user register or not also forgot password -->
         </a>
         <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-          <router-link class="collapse-item" to="placeholder">Add Employee</router-link>
+          <router-link class="collapse-item" to="/store-employee">Add Employee</router-link>
           <router-link class="collapse-item" to="placeholder">All Employees</router-link>
           </div>
         </div>
