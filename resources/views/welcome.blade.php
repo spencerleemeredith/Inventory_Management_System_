@@ -20,8 +20,8 @@
 <div id="app">
   <div id="wrapper">
     <!-- Sidebar -->
-Using V-show to check route path localhost:8080 to see user page
-this user as a route path home or user register or not also forgot password
+<!-- Using V-show to check route path localhost:8080 to see user page
+this user as a route path home or user register or not also forgot password -->
   <nav id="sidebar" v-show="$route.path" style="display: none;">
  
 
