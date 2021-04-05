@@ -23,6 +23,11 @@
                                                 placeholder="Enter Email Address"
                                                 v-model="form.email"
                                             />
+                                            <small
+                                                class="text-danger"
+                                                v-if="errors.email"
+                                                >{{ errors.email[0] }}</small
+                                            >
                                         </div>
                                         <div class="form-group">
                                             <input
@@ -32,6 +37,11 @@
                                                 placeholder="Password"
                                                 v-model="form.password"
                                             />
+                                            <small
+                                                class="text-danger"
+                                                v-if="errors.password"
+                                                >{{ errors.email[0] }}</small
+                                            >
                                         </div>
                                         <div class="form-group">
                                             <div
@@ -91,17 +101,27 @@
 
 <script type="text/javascript">
 export default {
+    created() {
+        if (User.loggedIn()) {
+            this.$router.push({ name: "home" });
+        }
+    },
+
     data() {
         return {
             form: {
+                name: null,
                 email: null,
-                password: null
-            }
+                password: null,
+                confirm_password: null
+            },
+
+            errors: {}
         };
     },
 
     methods: {
-        login() {
+        singup() {
             // for testing to see if login works alert("test");
             // Display Errors and responses
             axios
@@ -110,9 +130,22 @@ export default {
                 // .catch(error => console.log(error.response.data))
                 .then(res => {
                     User.responseAfterLogin(res);
+
+                    Toast.fire({
+                        icon: "success",
+                        title: "Signed in successfully"
+                    });
+
                     this.$router.push({ name: "home" });
                 })
-                .catch(error => console.log(error.response.data));
+                // .catch(error => console.log(error.response.data));
+                .catch(error => (this.errors = error.response.data.errors))
+                .catch(
+                    Toast.fire({
+                        icon: "warning",
+                        title: "Invaild email or password"
+                    })
+                );
         }
     }
 };
