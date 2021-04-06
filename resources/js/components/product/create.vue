@@ -15,13 +15,13 @@
                                 <div class="login-form">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">
-                                            Product Update
+                                            Add Product
                                         </h1>
                                     </div>
 
                                     <form
                                         class="user"
-                                        @submit.prevent="ProductUpdate"
+                                        @submit.prevent="ProductInsert"
                                         enctype="multipart/form-data"
                                     >
                                         <div class="form-group">
@@ -299,7 +299,7 @@
                                                 type="submit"
                                                 class="btn btn-primary btn-block"
                                             >
-                                                Update
+                                                Submit
                                             </button>
                                         </div>
                                     </form>
@@ -327,37 +327,21 @@ export default {
     data() {
         return {
             form: {
-                product_name: "",
-                product_code: "",
-                category_id: "",
-                supplier_id: "",
-                root: "",
-                image: "",
-                newimage: "",
-                buying_price: "",
-                selling_price: "",
-                buying_date: "",
-                product_quantity: ""
+                product_name: null,
+                product_code: null,
+                category_id: null,
+                supplier_id: null,
+                root: null,
+                buying_price: null,
+                selling_price: null,
+                buying_date: null,
+                image: null,
+                product_quantity: null
             },
             errors: {},
             categories: {},
             suppliers: {}
         };
-    },
-    created() {
-        let id = this.$route.params.id;
-        axios
-            .get("/api/product/" + id)
-            .then(({ data }) => (this.form = data))
-            .catch(console.log("error"));
-
-        // Category Collected
-        axios
-            .get("/api/category/")
-            .then(({ data }) => (this.categories = data));
-
-        // Supplier Collected
-        axios.get("/api/supplier/").then(({ data }) => (this.suppliers = data));
     },
 
     methods: {
@@ -368,21 +352,28 @@ export default {
             } else {
                 let reader = new FileReader();
                 reader.onload = event => {
-                    this.form.newimage = event.target.result;
+                    this.form.image = event.target.result;
+                    console.log(event.target.result);
                 };
                 reader.readAsDataURL(file);
             }
         },
-        ProductUpdate() {
-            let id = this.$route.params.id;
+        ProductInsert() {
             axios
-                .patch("/api/product/" + id, this.form)
+                .post("/api/product", this.form)
                 .then(() => {
                     this.$router.push({ name: "product" });
                     Notification.success();
                 })
                 .catch(error => (this.errors = error.response.data.errors));
         }
+    },
+    created() {
+        axios
+            .get("/api/category/")
+            .then(({ data }) => (this.categories = data));
+
+        axios.get("/api/supplier/").then(({ data }) => (this.suppliers = data));
     }
 };
 </script>
