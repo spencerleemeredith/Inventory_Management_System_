@@ -29,7 +29,17 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|unique:employees|max:255',
+            'email' => 'required',
+            'phone' => 'required|unique:employees',
+   
+           ]);
+   
+         if ($request->photo) {
+            $position = strpos($request->photo, ';');
+            $sub = substr($request->photo, 0, $position);
+            $ext = explode('/', $sub)[1];
     }
 
     /**
