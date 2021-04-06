@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Employee;
+use Image;
+use DB;
 
 class EmployeeController extends Controller
 {
@@ -71,9 +73,10 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+       $employee = DB::table('employees')->where('id',$id)->first();
+       return response()->json($employee);
     }
-
+     
    
     /**
      * Update the specified resource in storage.
