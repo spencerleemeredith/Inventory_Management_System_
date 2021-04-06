@@ -140,4 +140,5 @@ class EmployeeController extends Controller
        }else{
         DB::table('employees')->where('id',$id)->delete();
     }
+    }
 }

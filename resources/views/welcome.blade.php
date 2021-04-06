@@ -67,8 +67,8 @@ this user as a route path home or user register or not also forgot password -->
         </a>
         <div id="collapseBootstrap1" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-          <router-link class="collapse-item" to="placeholder">Add Supplier</router-link>
-          <router-link class="collapse-item" to="placeholder">All Suppliers</router-link>
+          <router-link class="collapse-item" to="/store-supplier">Add Supplier</router-link>
+          <router-link class="collapse-item" to="/supplier">All Suppliers</router-link>
 
           </div>
         </div>
