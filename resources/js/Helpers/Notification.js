@@ -33,7 +33,18 @@ class Notification {
             text: "You Are Going To In Trouble Mister/Mam ",
             timeout: 1000
         }).show();
-    }
+    
+}
+
+image_validation(){
+    new Noty({
+    type: 'error',
+    layout: 'topRight',
+    text: 'Upload Image less then 1MB ',
+    timeout: 1000,
+       }).show();
+  } 
+
 }
 
 export default Notification = new Notification();

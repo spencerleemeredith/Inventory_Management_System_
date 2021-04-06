@@ -17,6 +17,11 @@ export const routes = [
     { path: "/forgot", component: forgot, name: "forgot" },
     { path: "/home", component: home, name: "home" },
     { path: "/logout", component: logout, name: "logout" },
-    { path: "/store-employee", component: storeemployee, name: "store-employee" }
-    { path: "/employee", component: employee, name: "employee" }
+    
+    // Employee Routes
+    
+    { path: "/store-employee", component: storeemployee, name: "store-employee" },
+    { path: "/employee", component: employee, name: "employee" },
+    { path: '/edit-employee/:id', component: editemployee, name:'edit-employee'},
+
 ];
